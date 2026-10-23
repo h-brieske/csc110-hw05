@@ -6,7 +6,10 @@ References: (anything you checked to solve this)
 
 def get_letter():
     """ This function lets you ask for a letter as input from the user. If the input is not a single character, the user will be informed of this. If the input is a single character however and if the letter is A, B or C, then the input will be returned, else a message will inform the user that they provided the wrong character """
+    #ask for input
     #need nested loops with if, elif, else
+    #if length wrong, print error and continue
+    #if not a,b,c print error, if a, b, c return
     while True:
         letter = input("Give an single uppercase letter: ")
         length = len(letter)
@@ -25,6 +28,10 @@ def get_letter():
 
 def get_digit():
     """ This function asks for a single number character and if the input is not a digit, then the user will be informed of this and the loop will be restarted. If it is a single digit that is not between 1-3 inclusive, then the user will also be informed of this. If the input is 1,2 or 3, then the character will be returned. """
+    #ask for input
+    #if wrong print error and continue
+    #if not 1,2,3 print error and continue
+    #if 1,2,3 return character
     while True:
         digit = (input("Give me an single number character: "))
         if digit.isdigit() == False:
@@ -40,6 +47,8 @@ def get_digit():
 def check_pattern(letter, digit, st_list):
     """ This function receives the letter character and the digit character the string character called st_list as input. Check_pattern then checks if any of the words inside the list contain the letter and number (in that order) and prints any that do contain them """
     #st_list serves as input for the check_pattern function
+    #check if any of these words inside the list contain the letter and number (in this order)
+    #if so, print once
     st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
     "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
     "1B1B", "333B", "1@CC", "3@@C", "333C"]
@@ -79,6 +88,11 @@ def main ():
     #          IF the user replies with anything else, the loop ends
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
+    #make loop that does these things until last step leads to break
+    #get letter and digit
+    #check pattern and print
+    #ask try again y/n
+    #if response not y, it ends
     while True:
         letter = get_letter()
         print(f"{letter}")
