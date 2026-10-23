@@ -5,8 +5,8 @@ References: (anything you checked to solve this)
 """
 
 def get_letter():
-    """ Add your own Docstring """
-    
+    """ This function lets you ask for a letter as input from the user. If the input is not a single character, the user will be informed of this. If the input is a single character however and if the letter is A, B or C, then the input will be returned, else a message will inform the user that they provided the wrong character """
+    #need nested loops with if, elif, else
     while True:
         letter = input("Give an single uppercase letter: ")
         length = len(letter)
@@ -24,11 +24,11 @@ def get_letter():
     
 
 def get_digit():
-    """ Add your own Docstring """
+    """ This function asks for a single number character and if the input is not a digit, then the user will be informed of this and the loop will be restarted. If it is a single digit that is not between 1-3 inclusive, then the user will also be informed of this. If the input is 1,2 or 3, then the character will be returned. """
     while True:
         digit = (input("Give me an single number character: "))
         if digit.isdigit() == False:
-            print("Error: your input should be only digits:")
+            print("Error: your input should be only digits.")
             continue
         elif digit != "1" and digit != "2" and digit != "3":
             print("Error: a single digit needs to be in [1,3].")
@@ -38,10 +38,12 @@ def get_digit():
     
 
 def check_pattern(letter, digit, st_list):
-    """ Add your own Docstring """
+    """ This function receives the letter character and the digit character the string character called st_list as input. Check_pattern then checks if any of the words inside the list contain the letter and number (in that order) and prints any that do contain them """
+    #st_list serves as input for the check_pattern function
     st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
     "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
     "1B1B", "333B", "1@CC", "3@@C", "333C"]
+    print("Strings with the pattern:")
     for elem in st_list:
         pos = len(elem)
         for i in range(len(elem)):
@@ -50,7 +52,7 @@ def check_pattern(letter, digit, st_list):
                 break
         for i in range(pos+1, len(elem)):
             if (digit == elem[i]):
-                print(f"{elem}")
+                print(f"{elem}", end=" ")
                 break
 
 
@@ -83,7 +85,7 @@ def main ():
         digit = get_digit()
         print(f"{digit}")
         check_pattern(letter, digit, st_list)
-        answer = input("Try Again? (y/n):")
+        answer = input("\nTry Again? (y/n):")
         if (answer == "y"):
             continue
         else:
